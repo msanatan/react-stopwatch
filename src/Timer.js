@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import { Form, FormControl } from 'react-bootstrap';
+import { Form, ControlLabel } from 'react-bootstrap';
+
+const Separator = () => {
+  return <ControlLabel>:</ControlLabel>;
+}
 
 class Timer extends Component {
   render() {
     return (
       <Form inline>
-        <FormControl
-          placeholder="00">
-        </FormControl>
-        <span>:</span>
-        <FormControl
-          placeholder="00">
-        </FormControl>
-        <span>:</span>
-        <FormControl
-          placeholder="00">
-        </FormControl>
+        <ControlLabel>00</ControlLabel>
+        <Separator />
+        <ControlLabel>00</ControlLabel>
+        <Separator />
+        <ControlLabel>00</ControlLabel>
       </Form>
     );
   }
