@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { Form, ControlLabel } from 'react-bootstrap';
+import './Timer.css';
 
 const Separator = () => {
-  return <ControlLabel>:</ControlLabel>;
+  return <ControlLabel className='Timer-number'>:</ControlLabel>;
 }
 
 class Timer extends Component {
   render() {
     return (
-      <Form inline className='Timer'>
-        <ControlLabel>00</ControlLabel>
-        <Separator />
-        <ControlLabel>00</ControlLabel>
-        <Separator />
-        <ControlLabel>00</ControlLabel>
-      </Form>
+      <div className='Timer'>
+        <div className='Timer-display'>
+          <Form inline className='Timer-display-form'>
+              <ControlLabel className='Timer-number'>00</ControlLabel>
+              <Separator />
+              <ControlLabel className='Timer-number'>00</ControlLabel>
+              <Separator />
+              <ControlLabel className='Timer-number'>00</ControlLabel>
+          </Form>
+        </div>
+        <div className='Timer-buttons'>
+        </div>
+      </div>
     );
   }
 }
