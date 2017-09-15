@@ -8,7 +8,7 @@ const Separator = () => {
 class Timer extends Component {
   render() {
     return (
-      <Form inline>
+      <Form inline className='Timer'>
         <ControlLabel>00</ControlLabel>
         <Separator />
         <ControlLabel>00</ControlLabel>
