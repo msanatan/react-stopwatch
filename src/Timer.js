@@ -31,7 +31,7 @@ class Timer extends Component {
         <div className='Timer-buttons'>
           <ButtonGroup justified>
             <ButtonGroup className='Timer-button-group'>
-              <Button bsStyle='primary' bsSize='large' block className='Timer-button'>Start</Button>
+              <Button bsStyle='info' bsSize='large' block className='Timer-button'>Start</Button>
             </ButtonGroup>
             <ButtonGroup className='Timer-button-group'>
               <Button bsSize='large' block className='Timer-button'>Reset</Button>
