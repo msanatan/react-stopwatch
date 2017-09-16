@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, ControlLabel } from 'react-bootstrap';
+import { Form, ControlLabel, Button, ButtonGroup } from 'react-bootstrap';
 import './Timer.css';
 
 const Separator = () => {
@@ -21,14 +21,22 @@ class Timer extends Component {
       <div className='Timer'>
         <div className='Timer-display'>
           <Form inline className='Timer-display-form'>
-              <ControlLabel className='Timer-number'>{this.leadingZero(this.state.hours)}</ControlLabel>
-              <Separator />
-              <ControlLabel className='Timer-number'>{this.leadingZero(this.state.minutes)}</ControlLabel>
-              <Separator />
-              <ControlLabel className='Timer-number'>{this.leadingZero(this.state.seconds)}</ControlLabel>
+            <ControlLabel className='Timer-number'>{this.leadingZero(this.state.hours)}</ControlLabel>
+            <Separator />
+            <ControlLabel className='Timer-number'>{this.leadingZero(this.state.minutes)}</ControlLabel>
+            <Separator />
+            <ControlLabel className='Timer-number'>{this.leadingZero(this.state.seconds)}</ControlLabel>
           </Form>
         </div>
         <div className='Timer-buttons'>
+          <ButtonGroup justified>
+            <ButtonGroup className='Timer-button-group'>
+              <Button bsStyle='primary' bsSize='large' block className='Timer-button'>Start</Button>
+            </ButtonGroup>
+            <ButtonGroup className='Timer-button-group'>
+              <Button bsSize='large' block className='Timer-button'>Reset</Button>
+            </ButtonGroup>
+          </ButtonGroup>
         </div>
       </div>
     );
