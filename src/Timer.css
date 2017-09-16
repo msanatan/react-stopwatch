@@ -38,3 +38,13 @@
     color: #FFFFFF;
     font-size: 10em;
 }
+
+.Timer-button-group {
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+.Timer-button {
+    border-radius: 0;
+    box-shadow: none;
+}
