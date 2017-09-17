@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timer from './Timer';
+import Stopwatch from './Stopwatch';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className='App-Container'>
         <div className='App'>
-          <Timer />
+          <Stopwatch />
         </div>
       </div>
     );
