@@ -15,6 +15,16 @@ class Stopwatch extends Component {
       seconds: 0
     };
   }
+  
+  getTimeSinceStart(startTime) {
+    const now = Date.now();
+    const difference = now - startTime;
+    const seconds = Math.floor((difference / 1000) % 60);
+    const minutes = Math.floor((difference / 1000 / 60) % 60);
+    const hours = Math.floor((difference / 1000 / 60 / 60) % 24);
+
+    this.setState({ hours, minutes, seconds });
+  }
 
   render() {
     return (
