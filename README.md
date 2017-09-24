@@ -1,4 +1,5 @@
 # react-stopwatch
 
-Fancy schmancy countdown timer made with React, bootstrap and joy
+Fancy schmancy stopwatch made with React, bootstrap and joy.
+http://msanatan.com/react-stopwatch/ 
 
