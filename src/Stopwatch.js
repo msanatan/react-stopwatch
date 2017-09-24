@@ -10,32 +10,33 @@ class Stopwatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startTime: null,
       tick: null,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
+      totalSeconds: 0
     };
   }
 
-  getTimeSinceStart(startTime) {
-    const now = Date.now();
-    const difference = now - this.state.startTime;
-    const seconds = Math.floor((difference / 1000) % 60);
-    const minutes = Math.floor((difference / 1000 / 60) % 60);
-    const hours = Math.floor((difference / 1000 / 60 / 60) % 24);
+  incrementCount() {
     this.setState({
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds
+      totalSeconds: this.state.totalSeconds + 1
     });
+  }
+
+  getHours() {
+    return parseInt(this.state.totalSeconds / 60 / 60 ) % 24;
+  }
+
+  getMinutes() {
+    return parseInt(this.state.totalSeconds / 60) % 60;
+  }
+
+  getSeconds() {
+    return this.state.totalSeconds % 60;
   }
 
   startCounter = () => {
     clearInterval(this.state.tick);
     this.setState({
-      startTime: Date.now(),
-      tick: setInterval(() => this.getTimeSinceStart(this.props.startTime), 1000)
+      tick: setInterval(() => this.incrementCount(), 1000)
     });
   }
 
@@ -49,9 +50,7 @@ class Stopwatch extends Component {
   resetCounter = () => {
     clearInterval(this.state.tick);
     this.setState({
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
+      totalSeconds: 0,
       tick: null
     });
   }
@@ -59,13 +58,13 @@ class Stopwatch extends Component {
   resumeCounter = () => {
     clearInterval(this.state.tick);
     this.setState({
-      tick: setInterval(() => this.getTimeSinceStart(this.props.startTime), 1000)
+      tick: setInterval(() => this.incrementCount(), 1000)
     });
   }
 
   render() {
     let buttons = null;
-    let started = this.state.hours > 0 || this.state.minutes > 0 || this.state.seconds > 0;
+    let started = this.getHours() > 0 || this.getMinutes() > 0 || this.getSeconds() > 0;
     if (!this.state.tick && !started) {
       buttons = (
           <ButtonGroup justified>
@@ -111,11 +110,11 @@ class Stopwatch extends Component {
       <div className='Stopwatch'>
         <div className='Stopwatch-display'>
           <Form inline className='Stopwatch-display-form'>
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.state.hours)}</ControlLabel>
+            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getHours())}</ControlLabel>
             <Separator />
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.state.minutes)}</ControlLabel>
+            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getMinutes())}</ControlLabel>
             <Separator />
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.state.seconds)}</ControlLabel>
+            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getSeconds())}</ControlLabel>
           </Form>
         </div>
         <div className='Stopwatch-buttons'>
