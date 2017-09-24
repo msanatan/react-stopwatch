@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, ControlLabel, Button, ButtonGroup } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, Button, ButtonGroup } from 'react-bootstrap';
 import './Stopwatch.css';
 
 const Separator = () => {
@@ -108,18 +108,18 @@ class Stopwatch extends Component {
     }
     return (
       <div className='Stopwatch'>
-        <div className='Stopwatch-display'>
-          <Form inline className='Stopwatch-display-form'>
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getHours())}</ControlLabel>
-            <Separator />
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getMinutes())}</ControlLabel>
-            <Separator />
-            <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getSeconds())}</ControlLabel>
+          <Form className='Stopwatch-display'>
+            <FormGroup bsSize='large' controlId='formStopwatch'>
+              <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getHours())}</ControlLabel>
+              <Separator />
+              <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getMinutes())}</ControlLabel>
+              <Separator />
+              <ControlLabel className='Stopwatch-number'>{this.leadingZero(this.getSeconds())}</ControlLabel>
+            </FormGroup>
+            <FormGroup>
+              {buttons}
+            </FormGroup>
           </Form>
-        </div>
-        <div className='Stopwatch-buttons'>
-            {buttons}
-        </div>
       </div>
     );
   }
